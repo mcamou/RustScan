@@ -34,5 +34,6 @@ jobs:
         with:
           context: .
           push: ${{ contains(fromJson('["push", "release"]'), github.event_name) }} # Publish to docker registry only on push event or new release.
+          platforms: linux/amd64,linux/arm64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
